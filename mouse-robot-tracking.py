@@ -34,8 +34,10 @@ click = False
 # Fill the background with white
 screen.fill((255, 255, 255))
 prev_x,prev_y = 400,300
+f = 0
 while running:
-    pg.time.delay(100) 
+    f += 1
+    pg.time.delay(200) 
     # Did the user click the window close button?
     for event in pg.event.get():
         if event.type == pg.QUIT:
@@ -66,7 +68,7 @@ while running:
         for pt in topk:
             pg.draw.circle(screen, (255, 0, 255), (pt[0], pt[1]), 1)
         pg.draw.circle(screen, (255, 0, 255), tuple(topk.mean(0)), 5,2)
-        
+        pg.image.save(screen, f"doc/media/{f}.jpeg")
         
         
             
